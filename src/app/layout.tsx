@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://synaslabs.com";
 const siteTitle = "Synas Labs — AI Automation, CRM & Business Software";
 const siteDescription =
-  "Synas Labs builds AI automation, CRM systems, and business software that turn manual business workflows into connected systems.";
+  "Synas Labs builds AI automation, CRM systems, and business software that turn manual workflows into connected systems.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -75,6 +75,8 @@ const organizationJsonLd = {
   name: "Synas Labs",
   url: `${siteUrl}/`,
   logo: `${siteUrl}/synas-mark.png`,
+  email: "hello@synaslabs.com",
+  description: siteDescription,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
