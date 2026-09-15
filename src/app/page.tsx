@@ -36,13 +36,18 @@ export default function Home() {
       </header>
 
       <section className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-20 pt-8 text-center sm:px-10 md:px-14">
-        <h1 className="max-w-[18ch] font-mono text-[clamp(1.7rem,5.4vw,3.4rem)] leading-[1.15] font-medium tracking-tight text-synas-ink sm:max-w-[22ch]">
+        <p className="max-w-[22rem] font-mono text-[clamp(1rem,3.2vw,1.35rem)] leading-snug font-medium tracking-tight text-synas-ink sm:max-w-none">
           <span className="mr-2 select-none text-synas-ink/35" aria-hidden="true">
             &gt;
           </span>
-          Systems that move businesses.
+          We{"\u2019"}re Cooking. Stay Tuned.{" "}
+          <span className="eyes-gaze">👀</span>
           <span className="cursor-blink" aria-hidden="true" />
           <span className="sr-only">_</span>
+        </p>
+
+        <h1 className="mt-7 max-w-[18ch] font-mono text-[clamp(1.7rem,5.4vw,3.4rem)] leading-[1.15] font-medium tracking-tight text-synas-ink sm:mt-8 sm:max-w-[22ch]">
+          Systems that move businesses.
         </h1>
 
         <p className="mt-7 max-w-[28rem] text-[0.95rem] leading-relaxed text-synas-ink/70 sm:mt-8 sm:text-base md:text-[1.05rem]">

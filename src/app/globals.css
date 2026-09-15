@@ -60,6 +60,24 @@ body {
   }
 }
 
+/* Subtle left/right gaze; emoji pupils can't be targeted cross-browser. */
+@keyframes eyes-gaze {
+  0%,
+  12% {
+    transform: translateX(0);
+  }
+  32% {
+    transform: translateX(-0.08em);
+  }
+  52% {
+    transform: translateX(0.08em);
+  }
+  72%,
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .cursor-blink {
   display: inline-block;
   width: 0.55em;
@@ -68,6 +86,14 @@ body {
   vertical-align: -0.12em;
   background: var(--synas-ink);
   animation: cursor-blink 1.15s steps(1, end) infinite;
+}
+
+.eyes-gaze {
+  display: inline-block;
+  margin-left: 0.05em;
+  transform-origin: center;
+  will-change: transform;
+  animation: eyes-gaze 2.75s ease-in-out infinite;
 }
 
 .grain {
@@ -97,7 +123,8 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .cursor-blink,
-  .pixel--drift {
+  .pixel--drift,
+  .eyes-gaze {
     animation: none;
   }
 
