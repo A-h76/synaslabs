@@ -41,7 +41,7 @@ export default function Home() {
             &gt;
           </span>
           We{"\u2019"}re Cooking. Stay Tuned.{" "}
-          <span className="eyes-gaze">👀</span>
+          <span className="eyes-gaze" aria-hidden="true">👀</span>
           <span className="cursor-blink" aria-hidden="true" />
           <span className="sr-only">_</span>
         </p>
@@ -59,7 +59,7 @@ export default function Home() {
       <footer className="relative z-10 px-6 pb-7 sm:px-10 md:px-14">
         <a
           href="mailto:hello@synaslabs.com"
-          className="font-mono text-[10px] tracking-[0.12em] text-synas-ink/40 lowercase transition-colors hover:text-synas-ink/70 sm:text-[11px]"
+          className="font-mono text-[10px] tracking-[0.12em] text-synas-ink/70 lowercase transition-colors hover:text-synas-ink sm:text-[11px]"
         >
           hello@synaslabs.com
         </a>
