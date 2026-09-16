@@ -52,10 +52,6 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: ["/synas-logo-sheet.png"],
   },
-  icons: {
-    icon: [{ url: "/icon.png", type: "image/png" }],
-    apple: [{ url: "/apple-touch-icon.png" }],
-  },
   robots: {
     index: true,
     follow: true,
