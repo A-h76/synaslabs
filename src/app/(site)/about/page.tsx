@@ -16,6 +16,19 @@ export const metadata: Metadata = publicMetadata({
   path: "/about",
 });
 
+const TEAM = [
+  {
+    name: "Ahmad Hasan",
+    role: "CEO & Founder",
+    linkedin: "https://www.linkedin.com/in/ahmadhasan76/",
+  },
+  {
+    name: "Muhammad Haris",
+    role: "CTO & Co-Founder",
+    linkedin: "https://www.linkedin.com/in/muhammadharis76/",
+  },
+];
+
 const PRINCIPLES = [
   {
     id: "01",
@@ -58,6 +71,28 @@ export default function AboutPage() {
           </li>
         ))}
       </ol>
+      <Rule />
+      <div className="py-14">
+        <h2 className="font-mono text-[12px] uppercase tracking-[0.1em] text-synas-ink/55">
+          Team
+        </h2>
+        <ul className="mt-6 flex flex-col gap-6 sm:flex-row sm:gap-16">
+          {TEAM.map((person) => (
+            <li key={person.name}>
+              <p className="font-sans text-lg font-semibold tracking-tight">
+                {person.name}
+              </p>
+              <p className="text-[0.95rem] text-synas-ink/65">{person.role}</p>
+              <ExternalLink
+                href={person.linkedin}
+                className="mt-1 inline-flex min-h-11 items-center font-mono text-[12px] uppercase tracking-[0.1em]"
+              >
+                LinkedIn
+              </ExternalLink>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="flex flex-col items-start gap-2 py-14">
         <a
           href={`mailto:${SITE_EMAIL}`}
