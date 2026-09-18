@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { BriefFlow } from "@/components/site/diagrams";
 import { PageIntro, SiteContainer } from "@/components/site/primitives";
 import { publicMetadata } from "@/lib/seo";
 
@@ -32,6 +33,7 @@ export default function BriefPage() {
         including the break, and write a short system brief. This is not a live
         integration. You do not need to know how to draw a workflow.
       </PageIntro>
+      <BriefFlow />
       <BriefSession />
     </SiteContainer>
   );

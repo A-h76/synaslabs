@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { ExampleOrderFlow, FragmentedWork, ConnectedWork } from "@/components/site/diagrams";
+import {
+  ExampleOrderFlow,
+  FragmentedWork,
+  ConnectedWork,
+  HeroSystem,
+} from "@/components/site/diagrams";
 import {
   CtaLink,
   SiteContainer,
@@ -13,7 +18,7 @@ export default function HomePage() {
   return (
     <>
       <SiteContainer>
-        <section className="grid gap-10 border-b border-synas-ink/12 py-14 lg:grid-cols-[minmax(0,1fr)_11rem] lg:gap-16 lg:py-24">
+        <section className="grid gap-12 border-b border-synas-ink/12 py-14 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16 lg:py-24">
           <div>
             <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.2em] text-synas-ink/60 lg:hidden">
               Systems / Automation / Software
@@ -35,11 +40,9 @@ export default function HomePage() {
               </CtaLink>
             </div>
           </div>
-          <p className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-synas-ink/60 lg:flex lg:flex-col lg:justify-end lg:gap-3 lg:text-right">
-            <span>Systems</span>
-            <span>Automation</span>
-            <span>Software</span>
-          </p>
+          <div className="lg:flex lg:items-center">
+            <HeroSystem />
+          </div>
         </section>
       </SiteContainer>
 

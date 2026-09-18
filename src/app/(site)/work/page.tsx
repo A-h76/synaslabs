@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LeadRadarPreview } from "@/components/site/diagrams";
 import {
   CtaLink,
   MetaLabel,
@@ -46,6 +47,9 @@ export default function WorkPage() {
           system rather than a pile of tools. It is how Synas runs its own
           pipeline. It is not a client project.
         </p>
+        <div className="mt-10 max-w-2xl">
+          <LeadRadarPreview />
+        </div>
         <ol className="mt-12 max-w-xl">
           {DEMO.map((item, index) => (
             <li
