@@ -5,8 +5,10 @@
   --synas-ink: #0a0a0a;
   --synas-ink-soft: rgba(10, 10, 10, 0.72);
   --synas-ink-faint: rgba(10, 10, 10, 0.18);
-  --synas-paper: #f7fff9;
-  --background: var(--synas-teal);
+  --synas-paper: #f4f7f4;
+  --synas-paper-deep: #e7eee9;
+  --synas-rule: rgba(10, 10, 10, 0.12);
+  --background: var(--synas-paper);
   --foreground: var(--synas-ink);
 }
 
@@ -18,117 +20,125 @@
   --color-synas-paper: var(--synas-paper);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument);
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
+html {
   height: 100%;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: var(--synas-teal);
+  min-height: 100%;
+  background: var(--synas-paper);
   color: var(--synas-ink);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-@keyframes cursor-blink {
-  0%,
-  46% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
+::selection {
+  background: var(--synas-teal);
+  color: var(--synas-ink);
 }
 
-@keyframes pixel-drift {
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 0.55;
-  }
-  50% {
-    transform: translateY(-3px);
-    opacity: 0.9;
-  }
+:focus-visible {
+  outline: 2px solid var(--synas-ink);
+  outline-offset: 3px;
 }
 
-/* Subtle left/right gaze; emoji pupils can't be targeted cross-browser. */
-@keyframes eyes-gaze {
-  0%,
-  12% {
-    transform: translateX(0);
-  }
-  32% {
-    transform: translateX(-0.08em);
-  }
-  52% {
-    transform: translateX(0.08em);
-  }
-  72%,
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.cursor-blink {
-  display: inline-block;
-  width: 0.55em;
-  height: 1.05em;
-  margin-left: 0.12em;
-  vertical-align: -0.12em;
-  background: var(--synas-ink);
-  animation: cursor-blink 1.15s steps(1, end) infinite;
-}
-
-.eyes-gaze {
-  display: inline-block;
-  margin-left: 0.05em;
-  transform-origin: center;
-  will-change: transform;
-  animation: eyes-gaze 2.75s ease-in-out infinite;
-}
-
-.grain {
-  pointer-events: none;
+.skip-link {
   position: absolute;
-  inset: 0;
-  opacity: 0.045;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.pixel {
-  position: absolute;
-  width: 6px;
-  height: 6px;
+  left: 1rem;
+  top: -100%;
+  z-index: 80;
   background: var(--synas-ink);
-  opacity: 0.22;
+  color: var(--synas-paper);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
 }
 
-.pixel--soft {
-  opacity: 0.12;
+.skip-link:focus {
+  top: 1rem;
 }
 
-.pixel--drift {
-  animation: pixel-drift 7s ease-in-out infinite;
+.os-root {
+  min-height: 100dvh;
+  background: var(--synas-paper);
+  color: var(--synas-ink);
+}
+
+.site-field {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--synas-rule);
+  background: transparent;
+  border-radius: 0;
+  color: var(--synas-ink);
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.7rem 0;
+}
+
+.site-field:focus {
+  outline: none;
+  border-bottom-color: var(--synas-ink);
+  border-bottom-width: 2px;
+}
+
+.site-field:focus-visible {
+  outline: 2px solid var(--synas-ink);
+  outline-offset: 3px;
+}
+
+.site-field-error {
+  border-bottom-color: #8a1f1f;
+}
+
+textarea.site-field {
+  min-height: 8rem;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.site-action {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--synas-ink);
+  border-radius: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font: inherit;
+  min-height: 2.75rem;
+  padding: 0.35rem 0;
+}
+
+.site-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.site-action-quiet {
+  border-bottom-color: transparent;
+  color: color-mix(in srgb, var(--synas-ink) 70%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cursor-blink,
-  .pixel--drift,
-  .eyes-gaze {
-    animation: none;
+  html {
+    scroll-behavior: auto;
   }
 
-  .cursor-blink {
-    opacity: 1;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

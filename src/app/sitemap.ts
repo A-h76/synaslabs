@@ -1,14 +1,24 @@
 import type { MetadataRoute } from "next";
+import { SITE_UPDATED_AT, SITE_URL } from "@/lib/site";
 
-const siteUrl = "https://synaslabs.com";
+export const dynamic = "force-static";
+
+const pages = [
+  "",
+  "/solutions",
+  "/work",
+  "/approach",
+  "/brief",
+  "/about",
+  "/start",
+  "/contact",
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: `${siteUrl}/`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-  ];
+  return pages.map((path, index) => ({
+    url: path ? `${SITE_URL}${path}` : `${SITE_URL}/`,
+    lastModified: SITE_UPDATED_AT,
+    changeFrequency: index === 0 ? "weekly" : "monthly",
+    priority: index === 0 ? 1 : 0.7,
+  }));
 }

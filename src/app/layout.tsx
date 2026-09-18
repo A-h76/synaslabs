@@ -1,5 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import {
+  ORGANIZATION_JSON_LD,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+  WEBSITE_JSON_LD,
+} from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,44 +20,49 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://synaslabs.com";
-const siteTitle = "Synas Labs — AI Automation, CRM & Business Software";
-const siteDescription =
-  "Synas Labs builds AI automation, CRM systems, and business software that turn manual workflows into connected systems.";
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-instrument",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: siteTitle,
-  description: siteDescription,
-  applicationName: "Synas Labs",
-  authors: [{ name: "Synas Labs" }],
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: `%s — ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME }],
   keywords: [
     "Synas Labs",
+    "operational systems",
+    "workflow systems",
     "AI automation",
-    "CRM",
+    "CRM systems",
     "business software",
-    "operating layer",
   ],
-  // Canonical rendered in <head> to keep trailing slash on the root URL.
   openGraph: {
     type: "website",
-    url: `${siteUrl}/`,
-    siteName: "Synas Labs",
-    title: siteTitle,
-    description: siteDescription,
+    url: `${SITE_URL}/`,
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: [
       {
         url: "/synas-logo-sheet.png",
         width: 1024,
         height: 512,
-        alt: "Synas Labs",
+        alt: SITE_NAME,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: ["/synas-logo-sheet.png"],
   },
   robots: {
@@ -59,36 +72,33 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#02d89c",
+  themeColor: "#f4f7f4",
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
 
-const organizationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Synas Labs",
-  url: `${siteUrl}/`,
-  logo: `${siteUrl}/synas-mark.png`,
-  email: "hello@synaslabs.com",
-  description: siteDescription,
-};
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
-      <head>
-        <link rel="canonical" href={`${siteUrl}/`} />
-      </head>
       <body className="min-h-full">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd),
+            __html: JSON.stringify(ORGANIZATION_JSON_LD),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(WEBSITE_JSON_LD),
           }}
         />
         {children}
