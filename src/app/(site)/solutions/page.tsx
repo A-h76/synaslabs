@@ -41,7 +41,7 @@ export default function SolutionsPage() {
 
       <section className="grid gap-12 py-16 md:grid-cols-2 md:gap-20 md:py-24">
         <div>
-          <h2 className="font-serif text-3xl font-normal tracking-tight">
+          <h2 className="font-sans text-3xl font-semibold tracking-tight">
             Around the work, not around a template.
           </h2>
           <p className="mt-5 max-w-md text-[1.02rem] leading-relaxed text-synas-ink/75">
@@ -51,7 +51,7 @@ export default function SolutionsPage() {
           </p>
         </div>
         <div>
-          <h2 className="font-serif text-3xl font-normal tracking-tight">
+          <h2 className="font-sans text-3xl font-semibold tracking-tight">
             Humans stay where judgment is required.
           </h2>
           <p className="mt-5 max-w-md text-[1.02rem] leading-relaxed text-synas-ink/75">

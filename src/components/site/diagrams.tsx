@@ -6,7 +6,7 @@ export function FragmentedWork() {
   return (
     <div className="mt-8">
       <MetaLabel>How work often sits</MetaLabel>
-      <ul className="mt-4 grid grid-cols-2 gap-x-8 gap-y-0 sm:grid-cols-3 lg:grid-cols-6">
+      <ul className="mt-4 grid grid-cols-2 gap-x-8 gap-y-0">
         {FRAGMENTS.map((item) => (
           <li
             key={item}
@@ -118,7 +118,7 @@ export function CapabilitySpine() {
           className="grid grid-cols-[3rem_minmax(0,1fr)] gap-x-4 gap-y-2 border-t border-synas-ink/12 py-6 md:grid-cols-[3rem_16rem_minmax(0,1fr)] md:gap-10"
         >
           <span className="font-mono text-[11px] text-synas-ink/55">{item.id}</span>
-          <p className="font-serif text-xl font-normal tracking-tight md:text-[1.35rem]">
+          <p className="font-sans text-xl font-semibold tracking-tight md:text-[1.35rem]">
             {item.name}
           </p>
           <p className="col-span-2 text-sm leading-relaxed text-synas-ink/70 md:col-span-1 md:text-[0.98rem]">
@@ -151,7 +151,7 @@ export function CapabilityPath() {
             <p className="font-mono text-[11px] text-synas-ink/55">
               {String(index + 1).padStart(2, "0")}
             </p>
-            <p className="mt-3 font-serif text-xl tracking-tight">{item.stage}</p>
+            <p className="mt-3 font-sans text-xl font-semibold tracking-tight">{item.stage}</p>
             <p className="mt-2 text-sm leading-relaxed text-synas-ink/70">
               {item.sits}
             </p>

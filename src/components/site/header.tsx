@@ -100,7 +100,7 @@ export function SiteHeader() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="flex min-h-12 items-center border-b border-synas-ink/10 font-serif text-2xl tracking-tight"
+                    className="flex min-h-12 items-center border-b border-synas-ink/10 font-sans text-2xl font-semibold tracking-tight"
                     aria-current={active ? "page" : undefined}
                     onClick={() => setMenuOpen(false)}
                   >

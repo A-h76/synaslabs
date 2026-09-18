@@ -32,7 +32,7 @@ export default function ContactPage() {
           <dd>
             <a
               href={`mailto:${SITE_EMAIL}`}
-              className="font-serif text-2xl tracking-tight lowercase md:text-3xl"
+              className="font-mono text-xl tracking-tight lowercase md:text-2xl"
             >
               {SITE_EMAIL}
             </a>
@@ -45,7 +45,7 @@ export default function ContactPage() {
           <dd>
             <ExternalLink
               href={LINKEDIN_URL}
-              className="font-serif text-2xl tracking-tight md:text-3xl"
+              className="font-mono text-xl tracking-tight md:text-2xl"
             >
               synas-labs
             </ExternalLink>

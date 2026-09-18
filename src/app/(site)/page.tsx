@@ -18,7 +18,7 @@ export default function HomePage() {
             <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.2em] text-synas-ink/60 lg:hidden">
               Systems / Automation / Software
             </p>
-            <h1 className="max-w-[9ch] font-serif text-[clamp(3.1rem,12vw,7.2rem)] leading-[0.88] font-normal tracking-tight text-synas-ink">
+            <h1 className="max-w-[10ch] font-sans text-[clamp(3.1rem,12vw,7.2rem)] leading-[0.88] font-semibold tracking-tight text-synas-ink">
               Systems{" "}
               <span className="block">that move</span>
               <span className="block">businesses.</span>
@@ -45,7 +45,7 @@ export default function HomePage() {
 
       <SiteContainer>
         <StoryRow index="01">
-          <h2 className="font-serif text-[1.55rem] font-normal tracking-tight md:text-[1.75rem]">
+          <h2 className="font-sans text-[1.55rem] font-semibold tracking-tight md:text-[1.75rem]">
             Businesses run on workflows.
           </h2>
           <p className="mt-4 text-synas-ink/75">
@@ -55,19 +55,18 @@ export default function HomePage() {
           </p>
         </StoryRow>
 
-        <StoryRow index="02">
-          <h2 className="font-serif text-[1.55rem] font-normal tracking-tight md:text-[1.75rem]">
+        <StoryRow index="02" visual={<FragmentedWork />}>
+          <h2 className="font-sans text-[1.55rem] font-semibold tracking-tight md:text-[1.75rem]">
             Those paths usually live in pieces.
           </h2>
           <p className="mt-4 text-synas-ink/75">
             Across people, WhatsApp, spreadsheets, email, CRMs, and whatever
             someone still remembers to do.
           </p>
-          <FragmentedWork />
         </StoryRow>
 
         <StoryRow index="03">
-          <h2 className="font-serif text-[1.55rem] font-normal tracking-tight md:text-[1.75rem]">
+          <h2 className="font-sans text-[1.55rem] font-semibold tracking-tight md:text-[1.75rem]">
             The problem is not always lack of software.
           </h2>
           <p className="mt-4 text-synas-ink/75">
@@ -76,8 +75,8 @@ export default function HomePage() {
           </p>
         </StoryRow>
 
-        <StoryRow index="04">
-          <h2 className="font-serif text-[1.55rem] font-normal tracking-tight md:text-[1.75rem]">
+        <StoryRow index="04" visual={<ConnectedWork />}>
+          <h2 className="font-sans text-[1.55rem] font-semibold tracking-tight md:text-[1.75rem]">
             Synas designs the system around how the business actually works.
           </h2>
           <p className="mt-4 text-synas-ink/75">
@@ -85,23 +84,21 @@ export default function HomePage() {
             software, automation, and connections around it — including the
             steps that should stay human.
           </p>
-          <ConnectedWork />
         </StoryRow>
 
-        <StoryRow index="05">
-          <h2 className="font-serif text-[1.55rem] font-normal tracking-tight md:text-[1.75rem]">
+        <StoryRow index="05" visual={<ExampleOrderFlow />}>
+          <h2 className="font-sans text-[1.55rem] font-semibold tracking-tight md:text-[1.75rem]">
             Here is a small example of that shift.
           </h2>
           <p className="mt-4 text-synas-ink/75">
             A typical order flow, written as a system. Not a client. Not a live
             integration. Just the work, made visible.
           </p>
-          <ExampleOrderFlow />
           <div className="mt-10">
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-synas-ink/60">
               Optional
             </p>
-            <p className="mt-3 max-w-md font-serif text-[1.35rem] leading-snug tracking-tight">
+            <p className="mt-3 max-w-md font-serif text-[1.4rem] leading-snug tracking-tight italic">
               What would your workflow look like as a system?
             </p>
             <div className="mt-5">
@@ -109,20 +106,33 @@ export default function HomePage() {
             </div>
           </div>
         </StoryRow>
-
-        <StoryRow index="06">
-          <h2 className="font-serif text-[1.55rem] font-normal tracking-tight md:text-[1.75rem]">
-            Synas can build the real system.
-          </h2>
-          <p className="mt-4 text-synas-ink/75">
-            The public walkthrough is a working session, not a product you log
-            into. If the picture is right, we design and build it properly.
-          </p>
-          <div className="mt-8">
-            <CtaLink href="/start">Start a project</CtaLink>
-          </div>
-        </StoryRow>
       </SiteContainer>
+
+      <section className="border-t border-synas-ink/12 bg-synas-ink text-synas-paper">
+        <SiteContainer>
+          <div className="grid gap-6 py-16 md:grid-cols-[6.5rem_minmax(0,40rem)] md:gap-12 md:py-20">
+            <p className="font-mono text-sm tracking-[0.08em] text-synas-paper/55">06</p>
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-synas-teal">
+                System status · ready
+              </p>
+              <h2 className="mt-4 font-sans text-[1.75rem] font-semibold tracking-tight md:text-[2rem]">
+                Synas can build the real system.
+              </h2>
+              <p className="mt-4 max-w-xl text-synas-paper/75">
+                The public walkthrough is a working session, not a product you
+                log into. If the picture is right, we design and build it
+                properly.
+              </p>
+              <div className="mt-8">
+                <CtaLink href="/start" tone="invert">
+                  Start a project
+                </CtaLink>
+              </div>
+            </div>
+          </div>
+        </SiteContainer>
+      </section>
     </>
   );
 }

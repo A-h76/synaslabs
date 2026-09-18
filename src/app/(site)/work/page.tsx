@@ -37,7 +37,7 @@ export default function WorkPage() {
           <MetaLabel>Internal product</MetaLabel>
           <MetaLabel>Synas Labs</MetaLabel>
         </div>
-        <h2 className="mt-6 max-w-[12ch] font-serif text-[clamp(2.2rem,6vw,3.6rem)] leading-[1.02] font-normal tracking-tight">
+        <h2 className="mt-6 max-w-[12ch] font-sans text-[clamp(2.2rem,6vw,3.6rem)] leading-[1.02] font-semibold tracking-tight">
           Lead Radar
         </h2>
         <p className="mt-6 max-w-xl text-[1.02rem] leading-relaxed text-synas-ink/75">
@@ -70,7 +70,7 @@ export default function WorkPage() {
         <MetaLabel>Client systems</MetaLabel>
         <div className="mt-8 min-h-44 border border-synas-ink/15 px-6 py-10 md:px-10">
           <p className="font-mono text-[11px] text-synas-ink/55">00</p>
-          <p className="mt-6 max-w-lg font-serif text-3xl font-normal tracking-tight">
+          <p className="mt-6 max-w-lg font-sans text-3xl font-semibold tracking-tight">
             Nothing to list yet.
           </p>
           <p className="mt-4 max-w-lg text-[1.02rem] leading-relaxed text-synas-ink/70">

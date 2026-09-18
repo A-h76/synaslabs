@@ -39,12 +39,14 @@ export function CtaLink({
 }: {
   href: string;
   children: React.ReactNode;
-  tone?: "primary" | "quiet";
+  tone?: "primary" | "quiet" | "invert";
 }) {
   const color =
     tone === "primary"
       ? "border-synas-ink text-synas-ink"
-      : "border-synas-ink/30 text-synas-ink/80 hover:text-synas-ink hover:border-synas-ink";
+      : tone === "invert"
+        ? "border-synas-paper text-synas-paper hover:text-synas-teal hover:border-synas-teal"
+        : "border-synas-ink/30 text-synas-ink/80 hover:text-synas-ink hover:border-synas-ink";
   return (
     <Link
       href={href}
@@ -89,7 +91,7 @@ export function PageIntro({
   return (
     <header className="pt-12 pb-10 md:pt-24 md:pb-20">
       <MetaLabel>{kicker}</MetaLabel>
-      <h1 className="mt-5 max-w-[16ch] font-serif text-[clamp(2.4rem,7vw,5rem)] leading-[0.96] font-normal tracking-tight text-synas-ink">
+      <h1 className="mt-5 max-w-[18ch] font-sans text-[clamp(2.4rem,7vw,5rem)] leading-[0.96] font-semibold tracking-tight text-synas-ink">
         {title}
       </h1>
       {children ? (
@@ -103,19 +105,30 @@ export function PageIntro({
 
 export function StoryRow({
   index,
+  visual,
   children,
 }: {
   index: string;
+  visual?: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
-    <article className="grid gap-3 border-t border-synas-ink/12 py-10 md:grid-cols-[5.5rem_minmax(0,40rem)] md:gap-12 md:py-16 lg:grid-cols-[6.5rem_minmax(0,40rem)_1fr]">
+    <article
+      className={`grid gap-3 border-t border-synas-ink/12 py-10 md:grid-cols-[5.5rem_minmax(0,40rem)] md:gap-12 md:py-16 ${
+        visual ? "xl:grid-cols-[6.5rem_minmax(0,32rem)_1fr]" : "lg:grid-cols-[6.5rem_minmax(0,40rem)_1fr]"
+      }`}
+    >
       <p className="font-mono text-sm tracking-[0.08em] text-synas-ink/55">
         {index}
       </p>
       <div className="max-w-xl text-[1.05rem] leading-relaxed text-synas-ink md:text-[1.12rem]">
         {children}
       </div>
+      {visual ? (
+        <div className="md:col-span-2 xl:col-span-1 xl:self-center xl:pl-4">
+          {visual}
+        </div>
+      ) : null}
     </article>
   );
 }

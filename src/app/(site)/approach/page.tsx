@@ -61,7 +61,7 @@ export default function ApproachPage() {
             className="grid gap-3 border-b border-synas-ink/12 py-10 md:grid-cols-[5rem_11rem_minmax(0,32rem)] md:gap-12 md:py-14"
           >
             <p className="font-mono text-sm text-synas-ink/55">{step.id}</p>
-            <h2 className="font-serif text-2xl font-normal tracking-tight md:text-[1.65rem]">
+            <h2 className="font-sans text-2xl font-semibold tracking-tight md:text-[1.65rem]">
               {step.name}
             </h2>
             <p className="text-[1.02rem] leading-relaxed text-synas-ink/75">
