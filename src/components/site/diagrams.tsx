@@ -105,30 +105,35 @@ export function ExampleOrderFlow() {
 const CAPABILITIES = [
   {
     id: "01",
+    slug: "ai-automation",
     name: "AI automation",
     role: "Moves work that should not wait on memory.",
     flow: ["Input", "Understand", "Decide", "Act", "Escalate"],
   },
   {
     id: "02",
+    slug: "crm-systems",
     name: "CRM systems",
     role: "Holds people, state, and next actions.",
     flow: ["Capture", "Qualify", "Pipeline", "Follow-up", "Convert"],
   },
   {
     id: "03",
+    slug: "business-software",
     name: "Business software",
     role: "Fits the job, not a generic template.",
     flow: ["Data", "Rules", "Operations", "Interface", "Decision"],
   },
   {
     id: "04",
+    slug: "integrations",
     name: "Integrations",
     role: "Connects the tools you already have.",
     flow: ["System A", "Connector", "Transform", "System B"],
   },
   {
     id: "05",
+    slug: "workflow-systems",
     name: "Workflow systems",
     role: "Makes the path from request to done explicit.",
     flow: ["Input", "Process", "Decision", "Human", "Output"],
@@ -141,7 +146,8 @@ export function CapabilitySpine() {
       {CAPABILITIES.map((item) => (
         <li
           key={item.id}
-          className="grid gap-y-4 border-t border-synas-ink/12 py-6 md:grid-cols-[3rem_16rem_minmax(0,1fr)] md:gap-x-10"
+          id={item.slug}
+          className="grid scroll-mt-28 gap-y-4 border-t border-synas-ink/12 py-6 md:grid-cols-[3rem_16rem_minmax(0,1fr)] md:gap-x-10"
         >
           <span className="font-mono text-[11px] text-synas-ink/55">{item.id}</span>
           <p className="font-sans text-xl font-semibold tracking-tight md:text-[1.35rem]">

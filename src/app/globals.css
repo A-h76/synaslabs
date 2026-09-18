@@ -7,6 +7,7 @@
   --synas-ink-faint: rgba(10, 10, 10, 0.18);
   --synas-paper: #f4f7f4;
   --synas-paper-deep: #e7eee9;
+  --synas-mint: #e5f3ec;
   --synas-rule: rgba(10, 10, 10, 0.12);
   --background: var(--synas-paper);
   --foreground: var(--synas-ink);
@@ -18,6 +19,7 @@
   --color-synas-teal: var(--synas-teal);
   --color-synas-ink: var(--synas-ink);
   --color-synas-paper: var(--synas-paper);
+  --color-synas-mint: var(--synas-mint);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-instrument);

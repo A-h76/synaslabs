@@ -6,6 +6,8 @@ export const SITE_DESCRIPTION =
 export const SITE_NAME = "Synas Labs";
 export const SITE_EMAIL = "hello@synaslabs.com";
 export const BRAND_STATEMENT = "Systems that move businesses.";
+export const FOOTER_STATEMENT =
+  "Synas Labs designs and builds AI automation, CRM systems, and business software around how businesses actually work.";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/synas-labs";
 
 /** Last public homepage content change. Keep sitemap static to avoid runtime Date issues. */

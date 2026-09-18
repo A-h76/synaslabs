@@ -33,7 +33,7 @@ export default function WorkPage() {
         of the company, and this page is built around it.
       </PageIntro>
 
-      <article className="border-t border-synas-ink/12 py-14 md:py-20">
+      <article id="lead-radar" className="scroll-mt-28 border-t border-synas-ink/12 py-14 md:py-20">
         <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
           <MetaLabel>Internal product</MetaLabel>
           <MetaLabel>Synas Labs</MetaLabel>
@@ -70,7 +70,7 @@ export default function WorkPage() {
       </article>
 
       <Rule />
-      <section className="py-16 md:py-20">
+      <section id="client-systems" className="scroll-mt-28 py-16 md:py-20">
         <MetaLabel>Client systems</MetaLabel>
         <div className="mt-8 min-h-44 border border-synas-ink/15 px-6 py-10 md:px-10">
           <p className="font-mono text-[11px] text-synas-ink/55">00</p>
