@@ -163,6 +163,16 @@ textarea.site-field {
   }
 }
 
+@keyframes synas-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -224,49 +224,115 @@ export function SystemPanel({
   );
 }
 
-const HERO_STAGES = [
-  { code: "01", label: "Customer inquiry", kind: "Input" },
-  { code: "02", label: "AI classification", kind: "Automated" },
-  { code: "03", label: "CRM record", kind: "Automated" },
-  { code: "04", label: "Follow-up", kind: "Human" },
-  { code: "05", label: "Operation", kind: "Outcome" },
+const HERO_TRACE = [
+  { code: "01", label: "Customer inquiry", kind: "human" as const },
+  { code: "02", label: "AI classification", kind: "automated" as const },
+  { code: "03", label: "CRM record", kind: "automated" as const },
+  { code: "04", label: "Follow-up", kind: "human" as const },
 ];
+
+const HERO_CONNECTED = ["Calendar", "Inbox", "Records"];
 
 export function HeroSystem() {
   return (
-    <div className="w-full lg:ml-auto lg:max-w-[19rem]">
-      <div className="flex items-baseline justify-between gap-3">
-        <MetaLabel>Conceptual system</MetaLabel>
-        <StatusIndicator tone="active">Active path</StatusIndicator>
-      </div>
-      <div className="relative mt-6 pl-6">
-        <span className="absolute top-0 bottom-0 left-0 w-px bg-synas-ink/15" aria-hidden="true" />
-        <span
-          className="absolute left-0 h-1.5 w-1.5 -translate-x-1/2 bg-synas-teal motion-safe:animate-[synas-flow-y_4.5s_ease-in-out_infinite]"
-          aria-hidden="true"
-        />
-        <ol>
-          {HERO_STAGES.map((stage, index) => {
-            const last = index === HERO_STAGES.length - 1;
-            return (
-              <li key={stage.code} className="relative pb-6 last:pb-0">
+    <div className="relative mx-auto w-full max-w-[28rem] pt-5 pb-6 sm:max-w-[30rem] lg:mx-0 lg:ml-auto lg:max-w-[32rem]">
+      <span
+        className="absolute inset-x-5 top-0 hidden h-[88%] -rotate-2 border border-synas-ink/10 bg-synas-ink/[0.025] sm:block"
+        aria-hidden="true"
+      />
+
+      <div className="relative">
+        <div className="absolute -top-3 right-6 z-20 flex items-center gap-2 border border-synas-ink/15 bg-synas-paper px-3 py-1.5 shadow-[0_10px_24px_-16px_rgba(10,10,10,0.45)] sm:right-10">
+          <span
+            className="h-1.5 w-1.5 rounded-full bg-synas-teal motion-safe:animate-[synas-pulse_2.4s_ease-in-out_infinite]"
+            aria-hidden="true"
+          />
+          <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-synas-ink/70">
+            Active path
+          </span>
+        </div>
+
+        <div className="relative z-10 border border-synas-ink/15 bg-synas-paper shadow-[0_24px_60px_-32px_rgba(10,10,10,0.45)]">
+          <div className="flex items-center justify-between gap-3 border-b border-synas-ink/12 px-5 py-3.5">
+            <div className="flex items-center gap-2.5">
+              <span className="h-2.5 w-2.5 bg-synas-teal" aria-hidden="true" />
+              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-synas-ink/70">
+                Synas system
+              </span>
+            </div>
+            <StatusIndicator tone="active">Connected</StatusIndicator>
+          </div>
+          <div className="px-5 py-6 sm:px-7 sm:py-7">
+            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-synas-ink/45">
+              Opportunity · illustrative
+            </p>
+            <p className="mt-2 text-xl font-semibold tracking-tight text-synas-ink">
+              Northwind Fixtures
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-6 border-t border-synas-ink/10 pt-5">
+              <div>
+                <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-synas-ink/45">
+                  Stage
+                </p>
+                <p className="mt-1.5 inline-block border border-synas-teal bg-synas-teal px-2 py-0.5 text-[0.8rem] font-medium text-synas-ink">
+                  Discovery
+                </p>
+              </div>
+              <div>
+                <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-synas-ink/45">
+                  Next action
+                </p>
+                <p className="mt-1.5 text-[0.9rem] text-synas-ink/80">
+                  Schedule discovery call
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-20 mx-3 -mt-7 border border-synas-ink/15 bg-synas-paper px-4 py-4 shadow-[0_20px_44px_-28px_rgba(10,10,10,0.4)] sm:mx-8 sm:-mt-9">
+          <p className="font-mono text-[9px] uppercase tracking-[0.12em] text-synas-ink/45">
+            From inquiry to impact
+          </p>
+          <div className="relative mt-3 grid grid-cols-4 gap-2">
+            <span
+              className="absolute top-[0.3rem] right-3 left-3 hidden h-px overflow-hidden bg-synas-ink/15 sm:block"
+              aria-hidden="true"
+            >
+              <span className="absolute top-1/2 h-1 w-1 -translate-y-1/2 bg-synas-teal motion-safe:animate-[synas-flow-x_3.6s_ease-in-out_infinite]" />
+            </span>
+            {HERO_TRACE.map((step) => (
+              <div key={step.code} className="relative">
                 <span
-                  className={`absolute top-1 -left-[1.65rem] h-2 w-2 ${
-                    last ? "bg-synas-teal" : "bg-synas-ink"
+                  className={`relative z-10 mb-2 block h-1.5 w-1.5 ${
+                    step.kind === "human" ? "bg-synas-ink" : "bg-synas-teal"
                   }`}
                   aria-hidden="true"
                 />
-                <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-synas-ink/50">
-                  {stage.code} · {stage.kind}
+                <p className="font-mono text-[9px] leading-tight text-synas-ink/70">
+                  {step.label}
                 </p>
-                <p className="mt-1 text-[0.98rem] font-medium text-synas-ink">{stage.label}</p>
-              </li>
-            );
-          })}
-        </ol>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-      <p className="mt-1 max-w-[18rem] text-xs leading-relaxed text-synas-ink/55">
-        Illustrative composition. Not a live integration.
+
+      <div className="relative z-10 mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
+        <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-synas-ink/40">
+          Connects to
+        </span>
+        {HERO_CONNECTED.map((tool) => (
+          <span key={tool} className="flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 bg-synas-ink/35" aria-hidden="true" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-synas-ink/55">
+              {tool}
+            </span>
+          </span>
+        ))}
+      </div>
+      <p className="relative z-10 mt-3 max-w-[22rem] text-xs leading-relaxed text-synas-ink/50">
+        Conceptual composition. Not a live integration or client record.
       </p>
     </div>
   );

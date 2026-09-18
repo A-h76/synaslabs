@@ -18,12 +18,12 @@ export default function HomePage() {
   return (
     <>
       <SiteContainer>
-        <section className="grid gap-12 border-b border-synas-ink/12 py-14 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16 lg:py-24">
+        <section className="grid gap-12 border-b border-synas-ink/12 py-14 lg:grid-cols-2 lg:gap-16 lg:py-24">
           <div>
             <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.2em] text-synas-ink/60 lg:hidden">
               Systems / Automation / Software
             </p>
-            <h1 className="max-w-[10ch] font-sans text-[clamp(3.1rem,12vw,7.2rem)] leading-[0.88] font-semibold tracking-tight text-synas-ink">
+            <h1 className="max-w-[10ch] font-sans text-[clamp(3.1rem,12vw,7.2rem)] leading-[0.88] font-semibold tracking-tight text-synas-ink lg:text-[clamp(3rem,5.5vw,5.75rem)]">
               Systems{" "}
               <span className="block">that move</span>
               <span className="block">businesses.</span>
